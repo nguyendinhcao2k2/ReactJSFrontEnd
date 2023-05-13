@@ -2,6 +2,7 @@ import {createSlice} from "@reduxjs/toolkit";
 
 const fetchFromLocalStorage = () => {
     let cart = localStorage.getItem('cart');
+    console.log(cart);
     if(cart){
         return JSON.parse(localStorage.getItem('cart'));
     } else {
@@ -77,13 +78,13 @@ const cartSlice = createSlice({
                     if(action.payload.type === "INC"){
                         tempQty++;
                         if(tempQty === item.stock) tempQty = item.stock;
-                        tempTotalPrice = tempQty * item.discountedPrice;
+                        tempTotalPrice = tempQty * item.price;
                     }
 
                     if(action.payload.type === "DEC"){
                         tempQty--;
                         if(tempQty < 1) tempQty = 1;
-                        tempTotalPrice = tempQty * item.discountedPrice;
+                        tempTotalPrice = tempQty * item.price;
                     }
 
                     return {...item, quantity: tempQty, totalPrice: tempTotalPrice};

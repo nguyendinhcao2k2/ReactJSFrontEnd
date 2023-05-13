@@ -7,7 +7,7 @@ const Product = ({ product }) => {
   return (
     <Link to={`/product/${product?.id}`} key={product?.id}>
       <div className="product-item bg-white">
-        <div className="category">{product?.brandName}</div>
+        <div className="category">{product?.cateName}</div>
         <div className="product-item-img">
           <img
             className="img-cover"
@@ -18,7 +18,7 @@ const Product = ({ product }) => {
         <div className="product-item-info fs-14">
           <div className="brand">
             <span>Brand: </span>
-            <span className="fw-7">{product?.brandName}</span>
+            <span className="fw-7">{product?.nsx}</span>
           </div>
           <div className="title py-2">{product?.moTa}</div>
           <div className="price flex align-center justify-center">

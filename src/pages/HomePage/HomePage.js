@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./HomePage.scss";
 import HeaderSlider from "../../components/Slider/HeaderSlider";
 import ProductList from "../../components/ProductList/ProductList";
-import Loader from "../../components/Loader/Loader";
-import { STATUS } from "../../utils/status";
 import { useApi } from "../../apis/productApi";
 
 const HomePage = () => {
@@ -13,7 +11,6 @@ const HomePage = () => {
   useEffect(() => {
     const getProduct = async () => {
       const data = await api.getAllProduct();
-      console.log(data);
       setProduct(data);
     };
     getProduct();
